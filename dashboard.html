@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Dashboard</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div>
+            <h1>Library Management</h1>
+            <p>Welcome, (manager)</p>
+        </div>
+        <div class="top-bar-actions">
+            <a class="secondary-btn" href="login.html">Logout</a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="card">
+            <h2>All Books</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Publisher</th>
+                            <th>ISBN</th>
+                            <th>Year</th>
+                            <th>Total</th>
+                            <th>Available</th>
+                            <th>Shelf</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>The Great Gatsby</td>
+                            <td>F. Scott Fitzgerald</td>
+                            <td>Classic</td>
+                            <td>Scribner</td>
+                            <td>9780743273565</td>
+                            <td>1925</td>
+                            <td>5</td>
+                            <td>3</td>
+                            <td>F-12-B</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card grid-2">
+            <div>
+                <h2>Add New Book</h2>
+                <form class="form-grid compact">
+                    <label>Title<input type="text" name="title"></label>
+                    <label>Author ID<input type="number" name="author_id"></label>
+                    <label>Category ID<input type="number" name="category_id"></label>
+                    <label>Publisher ID<input type="number" name="publisher_id"></label>
+                    <label>ISBN<input type="text" name="isbn"></label>
+                    <label>Publish Year<input type="number" name="publish_year"></label>
+                    <label>Copies Total<input type="number" name="copies_total"></label>
+                    <label>Copies Available<input type="number" name="copies_available"></label>
+                    <label>Shelf Location<input type="text" name="shelf_location"></label>
+                    <button class="primary-btn" type="submit">Add Book</button>
+                </form>
+            </div>
+            <div>
+                <h2>Update Book</h2>
+                <form class="form-grid compact">
+                    <label>Book ID<input type="number" name="book_id"></label>
+                    <label>New Title<input type="text" name="new_title"></label>
+                    <label>New Copies Available<input type="number" name="new_copies"></label>
+                    <button class="primary-btn" type="submit">Update Book</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Delete Book</h2>
+            <form class="form-inline">
+                <label>Book ID<input type="number" name="delete_book_id"></label>
+                <button class="danger-btn" type="submit">Delete Book</button>
+            </form>
+            <p class="caption">Books currently borrowed or overdue cannot be removed.</p>
+        </section>
+
+        <section class="card grid-3">
+            <div>
+                <h2>Is Book Borrowed?</h2>
+                <form class="form-inline">
+                    <label>Book ID<input type="number" name="check_book_id"></label>
+                    <button class="secondary-btn" type="submit">Check</button>
+                </form>
+                <p class="metric">Borrowed: <strong>No</strong></p>
+            </div>
+            <div>
+                <h2>Member Has Unpaid Fines?</h2>
+                <form class="form-inline">
+                    <label>Member ID<input type="number" name="member_id"></label>
+                    <button class="secondary-btn" type="submit">Check</button>
+                </form>
+                <p class="metric">Has Unpaid Fines: <strong>Yes</strong></p>
+            </div>
+            <div>
+                <h2>Book Available?</h2>
+                <form class="form-inline">
+                    <label>Book ID<input type="number" name="available_book_id"></label>
+                    <button class="secondary-btn" type="submit">Check</button>
+                </form>
+                <p class="metric">Available: <strong>Yes</strong></p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>All Fines</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Member</th>
+                            <th>Book</th>
+                            <th>Amount</th>
+                            <th>Paid</th>
+                            <th>Borrow Date</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Member #1</td>
+                            <td>The Great Gatsby</td>
+                            <td>12.50</td>
+                            <td>No</td>
+                            <td>2024-03-02</td>
+                            <td>2024-03-16</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Fines By Period</h2>
+            <form class="form-inline">
+                <label>Start<input type="date" name="start_date"></label>
+                <label>End<input type="date" name="end_date"></label>
+                <button class="primary-btn" type="submit">Load Fines</button>
+            </form>
+            <div class="table-wrapper mt">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Member</th>
+                            <th>Book</th>
+                            <th>Amount</th>
+                            <th>Paid</th>
+                            <th>Borrowed</th>
+                            <th>Due</th>
+                            <th>Returned</th>
+                            <th>Days Late</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Jane Smith</td>
+                            <td>The Great Gatsby</td>
+                            <td>12.50</td>
+                            <td>No</td>
+                            <td>2024-03-02</td>
+                            <td>2024-03-16</td>
+                            <td>2024-03-18</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Members & Total Borrows</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Joined</th>
+                            <th>Total Borrows</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>5551112222</td>
+                            <td>123 Main St</td>
+                            <td>2023-09-12</td>
+                            <td>8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Borrowing Summary (Monthly)</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Total Borrows</th>
+                            <th>Returned</th>
+                            <th>Overdue</th>
+                            <th>Total Fines</th>
+                            <th>Unpaid Fines</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-03</td>
+                            <td>25</td>
+                            <td>20</td>
+                            <td>3</td>
+                            <td>105.50</td>
+                            <td>32.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card grid-2">
+            <div>
+                <h2>Most Popular Books</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Borrows</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>The Great Gatsby</td>
+                                <td>F. Scott Fitzgerald</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>1984</td>
+                                <td>George Orwell</td>
+                                <td>12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <h2>Top Authors</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Total Borrows</th>
+                                <th>Total Books</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3</td>
+                                <td>F. Scott Fitzgerald</td>
+                                <td>15</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>George Orwell</td>
+                                <td>12</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Most Active Members</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Total Borrows</th>
+                            <th>First Borrow</th>
+                            <th>Last Borrow</th>
+                            <th>Overdue Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>8</td>
+                            <td>2023-09-20</td>
+                            <td>2024-03-28</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Ahmed Ali</td>
+                            <td>ahmed@example.com</td>
+                            <td>6</td>
+                            <td>2023-11-02</td>
+                            <td>2024-03-20</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+

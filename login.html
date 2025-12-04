@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management Login</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="login-page">
+    <div class="auth-card">
+        <h1>Library Management</h1>
+        <p class="subtitle">Sign in to access the system</p>
+        <form class="form-grid" method="post" action="dashboard.html">
+            <label>
+                User ID
+                <input type="number" name="user_id" required>
+            </label>
+            <label>
+                Full Name
+                <input type="text" name="name" required>
+            </label>
+            <label>
+                Role
+                <select name="role" required>
+                    <option value="">Select role</option>
+                    <option value="manager">Manager</option>
+                    <option value="staff">Staff</option>
+                    <option value="member">Member</option>
+                </select>
+            </label>
+            <button type="submit" class="primary-btn full-width">Sign In</button>
+        </form>
+    </div>
+</body>
+</html>
+
